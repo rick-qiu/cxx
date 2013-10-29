@@ -38,6 +38,8 @@ void size_alignment (){
     printf("size of unsigned long long: %4d, alignment of unsigned long long: %4d\n", sizeof(unsigned long long), alignof(unsigned long long));
     printf("size of float:              %4d, alignment of float:              %4d\n", sizeof(float), alignof(float));
     printf("size of double:             %4d, alignment of double:             %4d\n", sizeof(double), alignof(double));
+    printf("size of long double:        %4d, alignment of long double:        %4d\n", sizeof(long double), alignof(long double));
+    printf("size of void*:              %4d, alignment of void*:              %4d\n", sizeof(void*), alignof(void*));
     printf("\nend of size and alignment\n");
 }
 
