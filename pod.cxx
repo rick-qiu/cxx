@@ -11,6 +11,9 @@
 
 using namespace std;
 
+struct pod_t0 {
+};
+
 struct alignas(8) subpod_t {
     int i;
 };
@@ -44,7 +47,7 @@ void size_alignment (){
 }
 
 void pod2file() {
-    const char* file_name = "./podfile";
+    const char* file_name = "/tmp/podtestingfile";
     auto fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     int num = 100;
     for(int i = 0; i < num; ++i) {
@@ -57,6 +60,7 @@ void pod2file() {
     struct stat file_stat;
     memset(&file_stat, 0, sizeof(file_stat));
     stat(file_name, &file_stat);
+    unlink(file_name);
     printf("alignment of POD object: %d\n", alignof(pod_t));
     printf("size of each POD object: %d, number of objects: %d, file size: %d\n", sizeof(pod_t), num, file_stat.st_size);
 }
