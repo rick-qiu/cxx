@@ -29,17 +29,22 @@ public:
     }
 };
 
-Object make_object() {
-    Object obj;
-    return obj;
+Object make_object(bool cond) {
+    Object obj1;
+    Object obj2;
+    return cond ? obj1 : obj2;
 }
 
 void use_object(const Object& obj) {
     obj.show();
 }
 
+void use_object2(Object&& obj) {
+}
+
 
 int main(int argc, char *argv[]) {
-    use_object(make_object());
+    Object obj = make_object(true);
+    use_object(obj);
     return 0;
 }
